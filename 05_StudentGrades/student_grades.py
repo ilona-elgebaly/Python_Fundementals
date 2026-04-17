@@ -15,5 +15,28 @@ class StudentGrades:
         total = sum(self.students.values())
         return total/len(self.students)
     def __str__(self): 
-        return "Class has" +str(len(self.students)) + "students. Average grade is" + str(self.get_average())
+        return "Class has " +str(len(self.students)) + " students. Average grade is " + str(self.get_average())
+    
+if __name__=="__main__":
+    grades=StudentGrades()
+    grades.add_student("Jan",89)
+    grades.add_student("Kate",90)
+    print(grades.get_grade("Jan"))
+    print(grades.get_average())
+    print(grades)
+
+    try:
+        grades.add_student("Ilona", 110)
+    except ValueError as e:
+        print(e)
+    try:
+        grades.get_grade("Suzan")
+    except KeyError as e:
+        print(e)
+    try:
+        grades.get_average()
+    except Exception as e:
+        print(e)
+
+
     
